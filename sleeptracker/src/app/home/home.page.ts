@@ -3,6 +3,8 @@ import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HomePage {
 
-	constructor(public sleepService:SleepService) {
+	constructor(public sleepService:SleepService, private route: Router) {
 
 	}
 
@@ -23,5 +25,9 @@ export class HomePage {
 	get allSleepData() {
 		return SleepService.AllSleepData;
 	}
+
+	toSleepPage() {
+    	this.route.navigate(['/sleep']);
+  	}
 
 }
