@@ -17,7 +17,8 @@
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
 
-
+https://www.youtube.com/watch?v=cM2SIeq7AE8 - generating new page
+https://stackoverflow.com/questions/40245847/how-to-go-to-another-page-with-a-button-click-with-ionic - navigating through pages
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 
