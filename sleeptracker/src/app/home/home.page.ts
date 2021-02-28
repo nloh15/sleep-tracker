@@ -29,7 +29,7 @@ export class HomePage {
 	updateTime() {
 		// Get current date and format to get current time
 		var date = new Date();
-		this.currentTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second:'2-digit' });
+		this.currentTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
 	}
 
 	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
