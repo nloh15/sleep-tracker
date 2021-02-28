@@ -6,32 +6,32 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content fullscreen>
-  <ion-card (click)="toSleepPage()">
-    <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Sleep</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+
+  <ion-text style="text-align: center;">
+    <h4>Current time is:</h4>
+  </ion-text>
+
+  <ion-text style="text-align: center;">
+    <h1>{{ currentTime }}</h1>
+  </ion-text>
 
   <ion-card (click)="toSleepPage()">
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Sleep</ion-card-title>
+      <ion-card-title>Log Sleep</ion-card-title>
     </ion-card-header>
   </ion-card>
 
-  <ion-card (click)="toSleepPage()">
+  <ion-card (click)="toSleepinessPage()">
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Sleep</ion-card-title>
+      <ion-card-title>Log Sleepiness</ion-card-title>
     </ion-card-header>
   </ion-card>
-  
-  <ion-card (click)="toSleepPage()">
+
+  <ion-card (click)="toHistoryPage()">
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Sleep</ion-card-title>
+      <ion-card-title>View History</ion-card-title>
     </ion-card-header>
   </ion-card>
 </ion-content>
