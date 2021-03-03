@@ -40,3 +40,26 @@ ion-content{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   //background-image: linear-gradient( 200deg,  #800e5d 11.1%, #035b8a 81.3% );
 }
+
+
+ion-title {
+    font-weight: 600;
+}
+
+ion-card {
+    width: 100%;
+    height: 160px;
+    box-shadow: none;
+    border-radius: 12px;
+    
+    img {
+        object-fit: cover;
+        width: 100%;
+        transform: scale(1.1, 1.1) rotate(1deg);
+        transition: 600ms all ease-in-out;
+    }
+}
+
+.custom-slides {
+  margin-top: -5px;
+}

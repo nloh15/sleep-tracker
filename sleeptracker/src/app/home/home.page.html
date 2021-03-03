@@ -48,7 +48,48 @@
   </ion-row>
 
   <ion-text>
-    <h4 style="margin-left: 20px">View History</h4>
+    <h4 style="margin-left: 20px">Recent History</h4>
   </ion-text>
+
+  <!-- Display 10 most recent logs -->
+  <ion-slides [options]="option">
+    
+    
+    <ion-slide>
+      <ion-card>
+        <img src="https://github.com/thedevclass/ionic-components-library/blob/custom-simple-ionic-slides/src/assets/images/01.jpg?raw=true">
+      </ion-card>
+    </ion-slide>
+    
+    <ion-slide>
+      <ion-card>
+        <img src="https://github.com/thedevclass/ionic-components-library/blob/custom-simple-ionic-slides/src/assets/images/01.jpg?raw=true">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://github.com/thedevclass/ionic-components-library/blob/custom-simple-ionic-slides/src/assets/images/01.jpg?raw=true">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://github.com/thedevclass/ionic-components-library/blob/custom-simple-ionic-slides/src/assets/images/01.jpg?raw=true">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="https://github.com/thedevclass/ionic-components-library/blob/custom-simple-ionic-slides/src/assets/images/01.jpg?raw=true">
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-text>
+    <p (click)="toHistoryPage()" style="margin-left: 20px; text-decoration: underline;">View All</p>
+  </ion-text>
+
+
 </ion-content>
 
