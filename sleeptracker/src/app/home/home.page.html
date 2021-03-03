@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-
+<!--
 <ion-content fullscreen>
 
   <ion-text style="text-align: center;">
@@ -34,5 +34,21 @@
       <ion-card-title>View History</ion-card-title>
     </ion-card-header>
   </ion-card>
+</ion-content>
+-->
+
+<ion-content fullscreen="true">
+  <ion-text>
+    <h4 style="margin-left: 20px">Welcome!</h4>
+  </ion-text>
+
+  <ion-row class="option-row">
+    <ion-col (click)="toSleepPage()" class="option-container option-left" size="5"> Sleep </ion-col>
+    <ion-col (click)="toSleepinessPage()" class="option-container option-right" size="5"> Sleepiness</ion-col>
+  </ion-row>
+
+  <ion-text>
+    <h4 style="margin-left: 20px">View History</h4>
+  </ion-text>
 </ion-content>
 
