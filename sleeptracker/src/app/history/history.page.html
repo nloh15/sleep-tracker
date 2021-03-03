@@ -10,33 +10,51 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Sleep History</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-card *ngFor="let dataof sleepArray">
-        <ion-item>
-          <ion-label>{{data.loggedAt}}</ion-label>
-        </ion-item>
-        <ion-card-content>{{data.summaryString()}}</ion-card-content>
-      </ion-card> 
-    </ion-card-content>
-  </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Sleepiness History</ion-card-title>
-    </ion-card-header>
-  
-      <ion-card *ngFor="let dataof sleepinessArray">
-        <ion-item>
-          <ion-label>{{data.loggedAt}}</ion-label>
-        </ion-item>
-        <ion-card-content>{{data.summaryString()}}</ion-card-content>
-      </ion-card>
-  </ion-card>
+  <h2> Overnight Sleep History </h2>
+  <div class="slides ion-margin-bottom">
+    <ion-slides [options]="options">
+      <ion-slide *ngFor="let data of sleepHistory">
+        <!-- Sleep -->
+        <ion-card> 
+            <ion-card-content class="ion-text-left">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-text> Date: </ion-text>
+            <br>
+            <ion-icon name="time-outline"></ion-icon>
+            <ion-text> Time: </ion-text>
+            <br>
+            <ion-icon name="time-outline"></ion-icon>
+            <ion-text> Total hours: </ion-text>
+          </ion-card-content>
+        </ion-card>
+        <!-- Sleepiness -->
+      </ion-slide>
+    </ion-slides>
+  </div>
 
+  <h2> Sleepiness History </h2>
+  <div class="slides ion-margin-bottom">
+    <ion-slides [options]="options">
+      <ion-slide *ngFor="let data of sleepinessHistory">
+        <!-- Sleep -->
+        <ion-card> 
+            <ion-card-content class="ion-text-left">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-text> Date: {{ data[0] }} </ion-text>
+            <br>
+            <ion-icon name="time-outline"></ion-icon>
+            <ion-text> Time: {{ data[1] }} </ion-text>
+            <br>
+            <ion-text> {{ data[2] }}</ion-text>
+          </ion-card-content>
+        </ion-card>
+        <!-- Sleepiness -->
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- things to add : most frequent sleepiness level? -->
+  <!-- average time ? -->
   
 </ion-content>
