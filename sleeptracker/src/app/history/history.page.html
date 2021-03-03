@@ -10,5 +10,33 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sleep History</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-card *ngFor="let dataof sleepArray">
+        <ion-item>
+          <ion-label>{{data.loggedAt}}</ion-label>
+        </ion-item>
+        <ion-card-content>{{data.summaryString()}}</ion-card-content>
+      </ion-card> 
+    </ion-card-content>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sleepiness History</ion-card-title>
+    </ion-card-header>
+  
+      <ion-card *ngFor="let dataof sleepinessArray">
+        <ion-item>
+          <ion-label>{{data.loggedAt}}</ion-label>
+        </ion-item>
+        <ion-card-content>{{data.summaryString()}}</ion-card-content>
+      </ion-card>
+  </ion-card>
+
+  
 </ion-content>

@@ -24,8 +24,17 @@ export class SleepPage implements OnInit {
     this.sleepStr = SleepService.AllOvernightData;
   }
 
+  get allSleepData() {
+		return SleepService.AllSleepData;
+  }
+  
   logdata(){
     let sleepData: OvernightSleepData = new OvernightSleepData(this.sleepTime, this.wakeTime);
     this.sleepService.logOvernightData(sleepData);
+    console.log(this.allSleepData);
   }
+
+  
+  
+  
 }
