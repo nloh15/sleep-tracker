@@ -49,11 +49,7 @@ export class HomePage {
     	this.route.navigate(['/history']);
   	}
 
-  	option = {
-    slidesPerView: 1.5,
-    centeredSlides: true,
-    loop: true,
-    spaceBetween: 0,
-    // autoplay:true,
-  }
+  	options = {
+    	slidesPerView: 1.3,
+  	}
 }
