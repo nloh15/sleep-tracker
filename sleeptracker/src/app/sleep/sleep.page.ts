@@ -14,14 +14,13 @@ import { ModalController } from '@ionic/angular';
 })
 export class SleepPage implements OnInit {
   sleepStr:OvernightSleepData[];
-  sleepTime:Date = new Date();
-  wakeTime:Date = new Date();
+  sleepTime:Date;
+  wakeTime:Date;
 
   constructor(public sleepService:SleepService, private route: Router, public modalController: ModalController) { }
 
   
   ngOnInit() {
-    this.sleepStr = SleepService.AllOvernightData;
   }
 
   get allSleepData() {
