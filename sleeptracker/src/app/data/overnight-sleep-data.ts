@@ -11,8 +11,10 @@ export class OvernightSleepData extends SleepData {
 	}
 
 	summaryString():string {
-		var sleepStart_ms = this.sleepStart.getTime();
-		var sleepEnd_ms = this.sleepEnd.getTime();
+		var startTime = new Date(this.sleepStart);
+		var sleepStart_ms = startTime.getTime();
+		var endTime = new Date(this.sleepEnd);
+		var sleepEnd_ms = endTime.getTime();
 
 		// Calculate the difference in milliseconds
 		var difference_ms = sleepEnd_ms - sleepStart_ms;
@@ -22,6 +24,17 @@ export class OvernightSleepData extends SleepData {
 	}
 
 	dateString():string {
-		return "Night of " + this.sleepStart.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+		var date = new Date(this.sleepStart);
+		return "Night of " + date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+	}
+
+	startTime():string{
+		var date = new Date(this.sleepStart);
+		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+	}
+
+	endTime():string{
+		var date = new Date(this.sleepEnd);
+		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 	}
 }
