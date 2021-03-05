@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-history',
@@ -10,10 +11,13 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
+  @ViewChild('barChart') barChart;  
   sleepArray: OvernightSleepData[];
   sleepinessArray: StanfordSleepinessData[];
   sleepHistory: Array<String>[];
   sleepinessHistory: Array<String>[];
+  bars: any;
+  colorArray: any;
 
   constructor(public sleepService:SleepService) { }
 
@@ -52,6 +56,7 @@ export class HistoryPage implements OnInit {
     var currentSleepHistory = [];
 
     console.log(this.sleepinessArray);
+    console.log(this.sleepArray);
 
     for (var i in this.sleepinessArray) {
       var currentSleepinessData = this.sleepinessArray[i];
@@ -71,5 +76,65 @@ export class HistoryPage implements OnInit {
 
     return currentSleepHistory;
   }
+
+  get averageHours(){
+    var currentSleepHistory = [];
+    var total = 0;
+
+    for (var i in this.sleepArray) {
+      var currentSleepData = this.sleepArray[i];
+      
+      var total = total + currentSleepData.getHours();
+      
+    }
+    var ave = total/3600000;
+    ave = ave/ this.sleepArray.length;
+
+    var hrs = ave.toFixed();
+
+    if (parseInt(hrs) > ave){
+      var num = parseInt(hrs) -1;
+    }
+    else{
+      var num = parseInt(hrs);
+    }
+    
+    
+    //var hrss = hrs.toString();
+    
+    var min = ave - num;
+    min = min*60;
+    var minInt = min.toFixed();
+    var hrsInString = num+' hours and '+minInt + ' mins';
+
+    return hrsInString;
+  }
+
+  get averageLevel(){
+    var currentSleepHistory = [];
+    var total = 0;
+
+    for (var i in this.sleepinessArray) {
+      var currentSleepData = this.sleepinessArray[i];
+      
+      var total = total + currentSleepData.sleepinessLevel();
+      
+    }
+
+
+    var ave = total/this.sleepinessArray.length;
+    var hello = ave.toFixed();
+
+    if (parseInt(hello) > ave){
+      var num = parseInt(hello) -1;
+    }
+    else{
+      var num = parseInt(hello);
+    }
+
+    return num;
+  }
+
+
 
 }

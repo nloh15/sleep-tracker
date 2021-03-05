@@ -4,6 +4,7 @@ import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sleepiness',
@@ -16,14 +17,23 @@ export class SleepinessPage implements OnInit {
 	lastRecorded:number = 0;
 
 
-	constructor(private sleepService:SleepService, private route: Router) { }
+	constructor(private sleepService:SleepService, private route: Router, public toastController: ToastController) { }
 	ngOnInit() { }
+
+	async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your daily log has been saved.',
+      duration: 2000
+    });
+    toast.present();
+  	}
 
   	// Record value once user prompts
   	recordValue(){
   		// Create new data of type StanfordSleepinessData and add to 
 		this.sleepService.logSleepinessData(new StanfordSleepinessData(this.level, new Date()));
 		console.log(this.allSleepData);
+		this.presentToast();
 
 		// Go back to home page and display modal to confirm success
 		this.route.navigate(['/home']);

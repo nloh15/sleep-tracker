@@ -12,6 +12,7 @@
 <ion-content>
 
   <h2> Overnight Sleep History </h2>
+  <h2> Average Sleep Hours: {{averageHours}} </h2>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
       <ion-slide *ngFor="let data of sleepArray">
@@ -33,7 +34,9 @@
     </ion-slides>
   </div>
 
+
   <h2> Sleepiness History </h2>
+  <h2> Average Sleepiness Level: {{averageLevel}} </h2>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
       <ion-slide *ngFor="let data of sleepinessHistory">

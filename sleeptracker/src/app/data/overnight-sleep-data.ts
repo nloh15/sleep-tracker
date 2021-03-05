@@ -23,6 +23,19 @@ export class OvernightSleepData extends SleepData {
 		return Math.floor(difference_ms / (1000*60*60)) + " hrs, " + Math.floor(difference_ms / (1000*60) % 60) + " mins";
 	}
 
+	getHours():number{
+		var startTime = new Date(this.sleepStart);
+		var sleepStart_ms = startTime.getTime();
+		var endTime = new Date(this.sleepEnd);
+		var sleepEnd_ms = endTime.getTime();
+
+		// Calculate the difference in milliseconds
+		var difference_ms = sleepEnd_ms - sleepStart_ms;
+		    
+		return difference_ms;
+
+	}
+
 	dateString():string {
 		var date = new Date(this.sleepStart);
 		return date.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
