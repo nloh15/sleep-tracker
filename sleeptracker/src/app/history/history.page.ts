@@ -35,8 +35,17 @@ export class HistoryPage implements OnInit {
     return SleepService.AllSleepinessData;
   }
 
+  get totalHours() {
+    return 0;
+  }
+
   options = {
-      slidesPerView: 1.4,
+      slidesPerView: 1.3,
+  }
+
+  get recordedTime() {
+    //time = data.loggedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
+    return "lalala";
   }
 
   get formatSleepinessHistory(){
@@ -46,12 +55,12 @@ export class HistoryPage implements OnInit {
 
     for (var i in this.sleepinessArray) {
       var currentSleepinessData = this.sleepinessArray[i];
-      var dataDate = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
+      var tanggal = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
 
-      var dataTime = currentSleepinessData.loggedAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-      var dataLevel = currentSleepinessData.summaryString();
+      var jam = currentSleepinessData.loggedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      var level = currentSleepinessData.summaryString();
 
-      var sleepLog = [dataDate, dataTime, dataLevel];
+      var sleepLog = [tanggal, jam, level];
       currentSleepHistory.push(sleepLog);
       
     }
