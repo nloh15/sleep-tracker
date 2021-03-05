@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
@@ -21,15 +20,11 @@ export class HomePage {
 	constructor(public sleepService:SleepService, private route: Router) {
 	}
 
-	ngOnInit() {
-		this.allData = this.allSleepData;
-		this.mostRecentHistory = this.recentHistory;
 	async ngOnInit() {
 
 		console.log(this.allSleepData);
-
-		// Update time each second
-		setInterval(() => { this.updateTime();}, 1000);
+		this.allData = this.allSleepData;
+		this.mostRecentHistory = this.recentHistory;
 
  		await LocalNotifications.requestPermission();
 

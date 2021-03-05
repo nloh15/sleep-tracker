@@ -2,12 +2,14 @@
 .option-container {
     background: white;
     color: black;
-    padding: 25px;
+    padding: 5px;
     border-radius: 10px;
     margin: 20px;
+    size: 13px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-    text-align: center;
-    //background-image: linear-gradient( 200deg,  #800e5d 11.1%, #035b8a 81.3% );
+    ion-text {
+      size: 12px;
+    }
   }
 
   h1{
