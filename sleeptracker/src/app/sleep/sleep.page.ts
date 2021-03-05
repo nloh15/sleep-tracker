@@ -5,7 +5,9 @@ import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
-import { ModalController } from '@ionic/angular';
+
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-sleep',
@@ -17,7 +19,16 @@ export class SleepPage implements OnInit {
   sleepTime:Date;
   wakeTime:Date;
 
-  constructor(public sleepService:SleepService, private route: Router, public modalController: ModalController) { }
+  constructor(public sleepService:SleepService, private route: Router, public toastController: ToastController) { }
+
+  
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your daily log has been saved.',
+      duration: 2000
+    });
+    toast.present();
+  }
 
   
   ngOnInit() {
@@ -30,6 +41,8 @@ export class SleepPage implements OnInit {
   logdata(){
     let sleepData: OvernightSleepData = new OvernightSleepData(this.sleepTime, this.wakeTime);
     this.sleepService.logOvernightData(sleepData);
+    this.presentToast();
+    this.route.navigate(['/home']);
     console.log(this.allSleepData);
   }
 
