@@ -19,16 +19,13 @@
         <ion-card> 
             <ion-card-content class="ion-text-left">
             <ion-icon name="calendar-outline"></ion-icon>
-            <ion-text> Date: {{data.dateString()}}</ion-text>
+              <ion-text> {{data.dateString()}}</ion-text>
             <br>
             <ion-icon name="time-outline"></ion-icon>
-            <ion-text> Start Time:  {{data.startTime()}}</ion-text>
+            <ion-text> {{data.startTime()}} to {{data.endTime()}}</ion-text>
             <br>
-            <ion-icon name="time-outline"></ion-icon>
-            <ion-text> End Time: {{data.endTime()}} </ion-text>
-            <br>
-            <ion-icon name="time-outline"></ion-icon>
-            <ion-text> Total hours: {{data.summaryString()}} </ion-text>
+              <ion-icon name="hourglass-outline"></ion-icon>
+            <ion-text> {{data.summaryString()}} </ion-text>
           </ion-card-content>
         </ion-card>
         <!-- Sleepiness -->
@@ -44,10 +41,10 @@
         <ion-card> 
             <ion-card-content class="ion-text-left">
             <ion-icon name="calendar-outline"></ion-icon>
-            <ion-text> Date: {{ data[0] }} </ion-text>
+            <ion-text> {{ data[0] }} </ion-text>
             <br>
             <ion-icon name="time-outline"></ion-icon>
-            <ion-text> Time: {{ data[1] }} </ion-text>
+            <ion-text> {{ data[1] }} </ion-text>
             <br>
             <ion-text> {{ data[2] }}</ion-text>
           </ion-card-content>

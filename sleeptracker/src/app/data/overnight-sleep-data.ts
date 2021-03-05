@@ -20,21 +20,21 @@ export class OvernightSleepData extends SleepData {
 		var difference_ms = sleepEnd_ms - sleepStart_ms;
 		    
 		// Convert to hours and minutes
-		return Math.floor(difference_ms / (1000*60*60)) + " hours, " + Math.floor(difference_ms / (1000*60) % 60) + " minutes.";
+		return Math.floor(difference_ms / (1000*60*60)) + " hrs, " + Math.floor(difference_ms / (1000*60) % 60) + " mins";
 	}
 
 	dateString():string {
 		var date = new Date(this.sleepStart);
-		return "Night of " + date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+		return date.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
 	}
 
 	startTime():string{
 		var date = new Date(this.sleepStart);
-		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+		return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 	}
 
 	endTime():string{
 		var date = new Date(this.sleepEnd);
-		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+		return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 	}
 }
