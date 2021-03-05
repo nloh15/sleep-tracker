@@ -1,0 +1,23 @@
+ion-content{
+  --ion-background-color: rgb(2,9,37);
+}
+
+.option-container {
+    background: white;
+    color: black;
+    padding: 6px;
+    border-radius: 14px;
+    margin: 7.5px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    vertical-align: middle;
+}
+
+.level-text {
+	font-size:12px;
+}
+
+.option-range {
+	margin-top: -25px;
+	margin-right: 25px;
+	margin-left: 25px;
+}
