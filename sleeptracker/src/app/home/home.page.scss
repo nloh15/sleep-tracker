@@ -24,19 +24,15 @@
 }
 
 ion-content{
-  --ion-background-color: rgb(2,9,37);
+  --ion-background-color: rgb(24, 28, 74);
 
-    /*
-    --ion-background-color: rgb(14,33,72);
-    --ion-background-color: linear-gradient(325deg, rgba(14,33,72,1) 0%, rgba(6,20,55,1) 100%); */
     ion-card {
       width: 100%;
       box-shadow: none;
       border-radius: 14px;
       padding: 5px 15px;
-      color: white;
-      background: linear-gradient(90deg, rgba(86,144,218,1) 0%, rgba(65,129,190,1) 100%);;
-
+      color: black;
+      background: white;
     }
 }
 

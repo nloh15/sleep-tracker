@@ -23,40 +23,38 @@
     </ion-row> 
   </div>
 
+  <!-- Summary of 10 most recent logged records -->
   <h2> Recent History </h2>
-
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
-      <ion-slide>
-
-        <!-- Sleep -->
-        <ion-card> 
-          <ion-card-header class="ion-text-center"> SLEEP</ion-card-header>
+      <ion-slide *ngFor="let data of mostRecentHistory">
+        <ion-card *ngIf="data[0] == 'Sleep Log' "> 
           <ion-card-content class="ion-text-left">
+            <ion-text> <b> {{ data[0] }} </b> </ion-text>
+            <br>
             <ion-icon name="calendar-outline"></ion-icon>
-            <ion-text> 02/03/21 </ion-text>
+              <ion-text> {{ data[1].dateString() }} </ion-text>
             <br>
             <ion-icon name="time-outline"></ion-icon>
-            <ion-text> 11:03 to 08:00 </ion-text>
+            <ion-text> {{data[1].startTime()}} to {{data[1].endTime()}} </ion-text>
             <br>
             <ion-icon name="hourglass-outline"></ion-icon>
-            <ion-text> 12 hrs 5 min </ion-text>
+            <ion-text> {{data[1].summaryString()}} </ion-text>
           </ion-card-content>
         </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <!-- Sleepiness -->
-        <ion-card> 
-          <ion-card-header class="ion-text-center"> SLEEPINESS</ion-card-header>
+
+        <ion-card *ngIf="data[0] == 'Sleepiness Log' "> 
           <ion-card-content class="ion-text-left">
+            <ion-text> <b> {{ data[0] }} </b> </ion-text>
+            <br>
             <ion-icon name="calendar-outline"></ion-icon>
-            <ion-text> 02/03/21 </ion-text>
+            <ion-text> {{ data[1].dateString() }} </ion-text>
             <br>
             <ion-icon name="time-outline"></ion-icon>
-            <ion-text> 11:03</ion-text>
+            <ion-text> {{ data[1].recordedTime() }} </ion-text>
             <br>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-            <ion-text> Level 1</ion-text>
+            <ion-icon name="moon-outline"></ion-icon>
+            <ion-text> Level: {{ data[1].sleepinessLevel() }} </ion-text>
           </ion-card-content>
         </ion-card>
       </ion-slide>

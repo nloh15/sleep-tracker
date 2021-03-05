@@ -12,24 +12,15 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-	// Initialize time
-	currentTime:string = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second:'2-digit' });
+	allData: SleepData[];
+	mostRecentHistory: Array<String>[];
 
 	constructor(public sleepService:SleepService, private route: Router) {
 	}
 
 	ngOnInit() {
-		console.log(this.allSleepData);
-
-		// Update time each second
-		setInterval(() => { this.updateTime();}, 1000);
-	}
-
-	updateTime() {
-		// Get current date and format to get current time
-		var date = new Date();
-		this.currentTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
+		this.allData = this.allSleepData;
+		this.mostRecentHistory = this.recentHistory;
 	}
 
 	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
@@ -51,5 +42,22 @@ export class HomePage {
 
   	options = {
     	slidesPerView: 1.3,
+  	}
+
+  	get recentHistory(){
+  		var currentRecentHistory = [];
+
+  		for (var i in this.allData) {
+  			var currentData = this.allData[i];
+  			var dataType = currentData.constructor.name;
+
+  			if (dataType == "OvernightSleepData") {
+  				currentRecentHistory.push(["Sleep Log", currentData]);
+  			}
+  			else if (dataType == "StanfordSleepinessData") {
+  				currentRecentHistory.push(["Sleepiness Log", currentData]);
+  			}
+  		}
+  		return currentRecentHistory;
   	}
 }
