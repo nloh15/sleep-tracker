@@ -23,17 +23,33 @@
   text-decoration: none;
 }
 
-ion-content{
-  --ion-background-color: rgb(24, 28, 74);
+.option-container {
+    background: rgb(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px;
+    size: 13px;
+    box-shadow: 0 2px 3px rgba(255, 255, 255, 0.15);
+  }
 
+.option-section {
+  margin-top: -20px;
+}
+ion-content{
+  --ion-background-color: rgb(9, 18, 33);
     ion-card {
       width: 100%;
       box-shadow: none;
       border-radius: 14px;
-      padding: 5px 15px;
+      padding: 5px;
       color: black;
       background: white;
     }
+}
+
+.toolbar-styling {
+  --ion-background-color: rgb(6, 15, 55);
 }
 
 .option-row {
@@ -45,7 +61,7 @@ ion-content{
 
 
 .options-container {
-  background: rgba(255,255,255,1);
+  //background: rgba(255,255,255,1);
   padding: 40px 20px;
   border-radius: 0px 0px 0px 45px;
   p {
@@ -53,7 +69,6 @@ ion-content{
   }
   margin-top: -40px;
 }
-
 
 .options-img {
   border-radius: 14px;

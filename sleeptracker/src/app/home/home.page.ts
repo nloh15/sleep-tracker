@@ -22,10 +22,8 @@ export class HomePage {
 
 	async ngOnInit() {
 
-		console.log(this.allSleepData);
-		this.allData = this.allSleepData;
 		this.mostRecentHistory = this.recentHistory;
-
+		console.log("page init");
  		await LocalNotifications.requestPermission();
 
  		const notifs = await LocalNotifications.schedule({
@@ -46,6 +44,10 @@ export class HomePage {
 		});
 		console.log('scheduled notifications', notifs);
 	}
+
+	ionViewDidLoad() {
+	    this.mostRecentHistory = this.recentHistory;
+  	}
 
 	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
 	get allSleepData() {
@@ -70,18 +72,30 @@ export class HomePage {
 
   	get recentHistory(){
   		var currentRecentHistory = [];
+  		var count = 0;
 
-  		for (var i in this.allData) {
-  			var currentData = this.allData[i];
+  		// Reverse list to get most recent
+
+  		var dataArray = this.allSleepData;
+  		console.log(dataArray);
+  		//dataArray.reverse();
+  		for (var i in dataArray) {
+  			var currentData = dataArray[i];
   			var dataType = currentData.constructor.name;
+  			if (count >= 10) {
+  				break;
+  			}
 
   			if (dataType == "OvernightSleepData") {
   				currentRecentHistory.push(["Sleep Log", currentData]);
+  				count++;
   			}
   			else if (dataType == "StanfordSleepinessData") {
   				currentRecentHistory.push(["Sleepiness Log", currentData]);
+  				count++;
   			}
   		}
+
   		return currentRecentHistory;
   	}
 }
