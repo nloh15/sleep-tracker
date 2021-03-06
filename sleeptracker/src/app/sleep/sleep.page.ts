@@ -45,6 +45,14 @@ export class SleepPage implements OnInit {
     });
     toast.present();
   }
+
+  async emptyToast() {
+    const toast = await this.toastController.create({
+      message: 'Sleep/Wake time is empty, please input a time.',
+      duration: 2000
+    });
+    toast.present();
+  }
   
   ngOnInit() {
   }
@@ -65,7 +73,10 @@ export class SleepPage implements OnInit {
     var difference_ms = sleepEnd_ms - sleepStart_ms;
 
 
-    if(this.sleepTime > this.wakeTime){
+    if(!this.sleepTime || !this.wakeTime){
+      this.emptyToast();
+    }
+    else if(this.sleepTime > this.wakeTime){
       this.timeToast();
 
     }
