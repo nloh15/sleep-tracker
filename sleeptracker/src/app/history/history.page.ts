@@ -3,7 +3,6 @@ import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
-import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-history',
@@ -22,8 +21,8 @@ export class HistoryPage implements OnInit {
   constructor(public sleepService:SleepService) { }
 
   ngOnInit() {
-    this.sleepArray = this.allOvernightData;
-    this.sleepinessArray = this.allSleepinessData;
+    this.sleepArray = this.allOvernightData.reverse();
+    this.sleepinessArray = this.allSleepinessData.reverse();
     this.sleepinessHistory = this.formatSleepinessHistory;
   }
 
@@ -100,12 +99,10 @@ export class HistoryPage implements OnInit {
     }
     
     
-    //var hrss = hrs.toString();
-    
     var min = ave - num;
     min = min*60;
     var minInt = min.toFixed();
-    var hrsInString = num+' hours and '+minInt + ' mins';
+    var hrsInString = num+' hrs, '+minInt + ' mins';
 
     return hrsInString;
   }

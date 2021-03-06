@@ -1,5 +1,5 @@
 <ion-header [translucent]="true" >
-  <ion-toolbar>
+  <ion-toolbar style="--background: rgb(9, 18, 33)"> 
     <ion-title>
       Log Sleep
     </ion-title>
@@ -13,25 +13,19 @@
 
    <ion-col class="option-col">
     <ion-row class="option-container option-left" size="5"> 
-      <h1>Sleep Time </h1><br/>
-      <ion-item>
+      <h1>Sleep Time </h1>
+      <br>
         <ion-datetime display-format="MMM DD, YY HH:mm" placeholder="select wake time" [(ngModel)]="sleepTime">
         </ion-datetime>
-       </ion-item>
     </ion-row>
     <ion-row class="option-container option-right" size="5"> 
-      <h1>Wake Time </h1><br/>
-      <ion-item>
+      <h1>Wake Time </h1><br>
         <ion-datetime display-format="MMM DD, YY HH:mm" placeholder="select sleep time" [(ngModel)]="wakeTime">
         </ion-datetime>
-       </ion-item>
     </ion-row>
   </ion-col>
 <ng-container>
-  <ion-list style="text-align:center">
     <ion-button (click)="logdata()" class= "button" color="light"> LOG DATA</ion-button>
-  
-  </ion-list>
   </ng-container>
 </ion-content>
 

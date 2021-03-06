@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar style="--background: rgb(9, 18, 33)">
     <ion-title>
       View History
     </ion-title>
@@ -12,7 +12,8 @@
 <ion-content>
 
   <h2> Overnight Sleep History </h2>
-  <h2> Average Sleep Hours: {{averageHours}} </h2>
+  <h4> More insight: </h4>
+  <p> Average Time: {{ averageHours }} </p>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
       <ion-slide *ngFor="let data of sleepArray">
@@ -36,12 +37,12 @@
 
 
   <h2> Sleepiness History </h2>
-  <h2> Average Sleepiness Level: {{averageLevel}} </h2>
+  <h2> Average Sleepiness Level: {{ averageLevel }} </h2>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
       <ion-slide *ngFor="let data of sleepinessHistory">
         <!-- Sleep -->
-        <ion-card> 
+        <ion-card class="sleepiness-card"> 
             <ion-card-content class="ion-text-left">
             <ion-icon name="calendar-outline"></ion-icon>
             <ion-text> {{ data[0] }} </ion-text>
@@ -59,5 +60,6 @@
 
   <!-- things to add : most frequent sleepiness level? -->
   <!-- average time ? -->
+
   
 </ion-content>
