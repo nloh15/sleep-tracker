@@ -35,9 +35,19 @@
     </ion-slides>
   </div>
 
-
   <h2> Sleepiness History </h2>
   <h2> Average Sleepiness Level: {{ averageLevel }} </h2>
+  <ion-content>
+  <ion-list-header color="light">Vertical Bar Chart</ion-list-header>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Sleepiness Level</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
       <ion-slide *ngFor="let data of sleepinessHistory">
@@ -57,6 +67,7 @@
       </ion-slide>
     </ion-slides>
   </div>
+
 
   <!-- things to add : most frequent sleepiness level? -->
   <!-- average time ? -->
