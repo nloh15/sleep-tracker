@@ -3,6 +3,7 @@ import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-history',
@@ -11,6 +12,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HistoryPage implements OnInit {
   @ViewChild('barChart') barChart;  
+  @ViewChild('sleepChart') sleepChart;  
   sleepArray: OvernightSleepData[];
   sleepinessArray: StanfordSleepinessData[];
   sleepHistory: Array<String>[];
@@ -131,9 +133,10 @@ export class HistoryPage implements OnInit {
 
     return num;
   }
-  /*
+  
   ionViewDidEnter() {
     this.createBarChart();
+    this.createSleepChart();
   }
 
   createBarChart() {
@@ -143,7 +146,7 @@ export class HistoryPage implements OnInit {
         labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
         datasets: [{
           label: 'Viewers in millions',
-          data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
+          data: this.formatSleepinessLevel,
           backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
           borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
           borderWidth: 1
@@ -159,7 +162,71 @@ export class HistoryPage implements OnInit {
         }
       }
     });
-  }*/
+  }
 
+  createSleepChart() {
+    this.bars = new Chart(this.sleepChart.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: this.formatSleepDate,
+        datasets: [{
+          label: 'Sleep Duration',
+          data: this.formatSleepLevel,
+          backgroundColor: 'rgb(255, 204, 153)', // array should have same number of elements as number of dataset
+          borderColor: 'rgb(255, 204, 153)',// array should have same number of elements as number of dataset
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
+  get formatSleepinessLevel(){
+    var currentSleepHistory = [];
+
+    for (var i in this.sleepinessArray) {
+      var currentSleepinessData = this.sleepinessArray[i];
+      var level = currentSleepinessData.sleepinessLevel();
+
+      currentSleepHistory.push(level);
+      
+    }
+    return currentSleepHistory;
+  }
+
+  get formatSleepLevel(){
+    var currentSleepHistory = [];
+
+    for (var i in this.sleepArray) {
+      var currentSleepData = this.sleepArray[i];
+      var level = currentSleepData.getHours();
+      level = level/3600000;
+
+      currentSleepHistory.push(level);
+      
+    }
+    return currentSleepHistory;
+  }
+
+  get formatSleepDate(){
+    var currentSleepHistory = [];
+
+    for (var i in this.sleepArray) {
+      var currentSleepData = this.sleepArray[i];
+      var level = currentSleepData.dateString();
+
+      currentSleepHistory.push(level);
+      
+    }
+    return currentSleepHistory;
+  }
 
 }
