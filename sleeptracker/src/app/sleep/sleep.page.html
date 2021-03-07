@@ -16,18 +16,18 @@
 
     <div class="option-container" size="5"> 
         <h1>Sleep Time</h1>
-        <ion-datetime display-format="MMM DD, YY HH:mm" placeholder="Enter sleep time" [(ngModel)]="sleepTime">
+        <ion-datetime style="margin-left: -11px; margin-top: -7px;" display-format="MMM DD, YY HH:mm" placeholder="Select sleep time" [(ngModel)]="sleepTime">
         </ion-datetime>
     </div>
 
     <div class="option-container" size="5"> 
         <h1>Wake Time</h1>
-        <ion-datetime display-format="MMM DD, YY HH:mm" placeholder="Enter wake time" [(ngModel)]="wakeTime">
+        <ion-datetime style="margin-left: -11px; margin-top: -7px;" display-format="MMM DD, YY HH:mm" placeholder="Select wake time" [(ngModel)]="wakeTime">
         </ion-datetime>
     </div>
 
   <div style="text-align: center">
-      <ion-button (click)="logdata()" fill="outline" color="secondary">Record Overnight Sleep</ion-button>
+      <ion-button (click)="logdata()" color="secondary">Record</ion-button>
     </div>
 </ion-content>
 

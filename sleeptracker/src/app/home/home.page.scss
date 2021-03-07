@@ -24,15 +24,15 @@
 }
 
 .option-container {
-    //background: rgb(255, 255, 255, 0.1);
-    background-image: linear-gradient(to left, rgba(99,156,195,1), rgba(6,25,57,1));
+    background: rgba(0,9,26,1);
+    //background-image: linear-gradient(to left, rgba(99,156,195,1), rgba(6,25,57,1));
     color: white;
     padding: 15px;
     border-radius: 10px;
     margin: 20px;
     size: 13px;
-    box-shadow: 1px 1px 1px 0px #ffffff;
-     border: 0.5px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    border: 0.1px solid white;
   }
 
 .option-section {

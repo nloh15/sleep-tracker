@@ -13,8 +13,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class SleepinessPage implements OnInit {
 
-	level:number = 0;
-	lastRecorded:number = 0;
+	level:number = 1;
 
 
 	constructor(private sleepService:SleepService, private route: Router, public toastController: ToastController) { }
@@ -22,7 +21,7 @@ export class SleepinessPage implements OnInit {
 
 	async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Your daily log has been saved.',
+      message: 'Your sleepiness level has been recorded!',
       duration: 2000
     });
     toast.present();
@@ -37,8 +36,6 @@ export class SleepinessPage implements OnInit {
 
 		// Go back to home page and display modal to confirm success
 		this.route.navigate(['/home']);
-
-		/* TO DO DISPLAY MODAL TO CONFIRM SUCCESS */
 
 	}
 

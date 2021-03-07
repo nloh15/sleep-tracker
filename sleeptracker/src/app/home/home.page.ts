@@ -66,6 +66,10 @@ export class HomePage {
     	this.route.navigate(['/history']);
   	}
 
+    toHistory2Page() {
+      this.route.navigate(['/history2']);
+    }
+
   	options = {
     	slidesPerView: 1.3,
   	}

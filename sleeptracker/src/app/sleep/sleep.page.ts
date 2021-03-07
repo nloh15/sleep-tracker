@@ -24,7 +24,7 @@ export class SleepPage implements OnInit {
   
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Your daily log has been saved.',
+      message: 'Your overnight sleep log has been recorded!',
       duration: 2000
     });
     toast.present();

@@ -6,11 +6,11 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.page.html',
-  styleUrls: ['./history.page.scss'],
+  selector: 'app-history2',
+  templateUrl: './history2.page.html',
+  styleUrls: ['./history2.page.scss'],
 })
-export class HistoryPage implements OnInit {
+export class History2Page implements OnInit {
   @ViewChild('barChart') barChart;  
   @ViewChild('sleepChart') sleepChart;  
   sleepArray: OvernightSleepData[];
@@ -20,13 +20,14 @@ export class HistoryPage implements OnInit {
   bars: any;
   colorArray: any;
 
+
   constructor(public sleepService:SleepService) { }
 
   ngOnInit() {
-    // Clone array
-    var tempSleepArray = this.allOvernightData.slice(0);
-    this.sleepArray = tempSleepArray.reverse();
-
+    this.sleepArray = this.allOvernightData.reverse();
+    this.sleepinessArray = this.allSleepinessData;
+    this.sleepinessHistory = this.formatSleepinessHistory;
+    var test = this.mostFrequentLevel;
   }
 
   get allSleepData() {
@@ -56,10 +57,7 @@ export class HistoryPage implements OnInit {
 
   get formatSleepinessHistory(){
     var currentSleepHistory = [];
-
-    console.log(this.sleepinessArray);
-    console.log(this.sleepArray);
-
+    this.sleepinessArray.reverse();
     for (var i in this.sleepinessArray) {
       var currentSleepinessData = this.sleepinessArray[i];
       var tanggal = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
@@ -72,42 +70,12 @@ export class HistoryPage implements OnInit {
       
     }
 
+    this.sleepinessArray.reverse();
     // First data: date logged
     // Second data: time logged
     // Third data: level of sleepiness
 
     return currentSleepHistory;
-  }
-
-  get averageHours(){
-    var currentSleepHistory = [];
-    var total = 0;
-
-    for (var i in this.sleepArray) {
-      var currentSleepData = this.sleepArray[i];
-      
-      var total = total + currentSleepData.getHours();
-      
-    }
-    var ave = total/3600000;
-    ave = ave/ this.sleepArray.length;
-
-    var hrs = ave.toFixed();
-
-    if (parseInt(hrs) > ave){
-      var num = parseInt(hrs) -1;
-    }
-    else{
-      var num = parseInt(hrs);
-    }
-    
-    
-    var min = ave - num;
-    min = min*60;
-    var minInt = min.toFixed();
-    var hrsInString = num+' hrs, '+minInt + ' mins';
-
-    return hrsInString;
   }
 
   get averageLevel(){
@@ -121,7 +89,6 @@ export class HistoryPage implements OnInit {
       
     }
 
-
     var ave = total/this.sleepinessArray.length;
     var hello = ave.toFixed();
 
@@ -133,6 +100,27 @@ export class HistoryPage implements OnInit {
     }
 
     return num;
+  }
+
+  get mostFrequentLevel(){
+    var levelToCount = new Map;
+
+    for (var i = 0; i < this.sleepinessArray.length; i++){
+      var currentLevel = this.sleepinessArray[i].sleepinessLevel();
+      if (levelToCount.has(currentLevel)){
+      // Increment count by 1 if activity already stored in map
+      levelToCount.set(currentLevel, levelToCount.get(currentLevel) + 1);
+      }
+      else {
+        levelToCount.set(currentLevel, 1);
+      }
+    }
+
+    var sortedlevelToCount= new Map([...levelToCount.entries()].sort((a, b) => b[1] - a[1]));
+    var it = sortedlevelToCount.keys();
+
+    // Return first key in the map
+    return it.next().value;
   }
   
   ionViewDidEnter() {
@@ -229,5 +217,6 @@ export class HistoryPage implements OnInit {
     }
     return currentSleepHistory;
   }
+
 
 }

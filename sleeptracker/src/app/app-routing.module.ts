@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'sleepiness',
     loadChildren: () => import('./sleepiness/sleepiness.module').then( m => m.SleepinessPageModule)
   },
+  {
+    path: 'history2',
+    loadChildren: () => import('./history2/history2.module').then( m => m.History2PageModule)
+  },
 ];
 
 @NgModule({
