@@ -2,6 +2,15 @@ ion-content{
    --ion-background-color: rgb(9, 18, 33);
 }
 
+
+.instruction-container {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 15px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
 .option-container {
     color: white;
     padding: 10px;

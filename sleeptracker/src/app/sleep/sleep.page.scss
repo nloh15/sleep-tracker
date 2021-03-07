@@ -1,24 +1,30 @@
 ion-content {
   --ion-background-color: rgb(9, 18, 33);
 }
+
+.instruction-container {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 15px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
 .option-container {
-    background: white;
-    color: black;
+   // background: white;
+   border: 1px solid white;
+    color: white;
     padding: 5px;
     border-radius: 10px;
     margin: 20px;
     size: 13px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     ion-text {
       size: 12px;
     }
-  }
-
-  h1{
     text-align: center;
   }
 
-  .datetime-md .datetime-placeholder { color: #999; }
+  .datetime-md .datetime-placeholder { color: #fff; }
 
 h2{
   font-family: "helvetica";
