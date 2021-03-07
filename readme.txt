@@ -13,35 +13,24 @@
 
 2. How long, in hours, did it take you to complete this assignment?
 
-It took us around 20 hours spread over 1 week.
+It took us around 30-35 hours spread over 1 and a half week.
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
 
 https://www.youtube.com/watch?v=cM2SIeq7AE8 - generating new page
 https://stackoverflow.com/questions/40245847/how-to-go-to-another-page-with-a-button-click-with-ionic - navigating through pages
-
-https://ionicframework.com/docs/api/back-button
-back button
-
-https://ionicframework.com/docs/api/datetime
-date time
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-date string
-
-https://enappd.com/blog/local-notifications-in-ionic-5-capacitor/132/
-ionic local notifications
-
-https://capacitorjs.com/docs/apis/local-notifications
-local notifs
-
-https://developer.android.com/guide/topics/manifest/manifest-intro
-making a manifest
-
+https://stackoverflow.com/questions/53531819/how-to-set-background-color-ionic-4 - set bg color
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString - formatting time
+https://www.youtube.com/watch?v=T_Jl9WwCtnw&t=556s - styling tutorial
+https://ionicframework.com/docs/api/back-button - back button
+https://ionicframework.com/docs/api/datetime - date time
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString - date string
+https://enappd.com/blog/local-notifications-in-ionic-5-capacitor/132/ - ionic local notifications
+https://capacitorjs.com/docs/apis/local-notifications -local notifs
+https://developer.android.com/guide/topics/manifest/manifest-intro - making a manifest
 https://github.com/appium-boneyard/sample-code/blob/master/sample-code/apps/ToggleTest/AndroidManifest.xml
-
 https://stackoverflow.com/questions/35460303/how-to-convert-decimal-hour-value-to-hhmmss
-
+https://davidwalsh.name/javascript-clone-array - cloning arrays
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
@@ -55,36 +44,32 @@ None
 
 
 6. Did you design your app with a particular type of user in mind? If so, whom?
-
+We designed it for the general public, hence we chose simple logging methods, easy to read history, and minimalist design.
 
 
 7. Did you design your app specifically for iOS or Android, or both?
-
-
+It is optimized for Android, but looks decent on iOS.
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
 
 A person can log their overnight sleep by inputting their sleep and wake time (date and time). It is done that way so the user would not have to log twice (once at night and once in the morning). They would only have to do it once after they wake up. 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
-
+A person can log their sleepiness level by picking from a range. 
 
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
-
-
+We created two separate pages for overnight sleep and sleepiness history. Each page containes all logged data (presented using slides), and insight based on the data logged.
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
-
 We used a native device resource.
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
-
-The feature we added is local notifications. At 9am everyday, there will be a notif sent to the user's device to as a reminder to log their sleep data. 
+The feature we added is local notifications. At 9am everyday, there will be a notification sent to the user's device to as a reminder to log their sleep data. 
 
 13. If you backed up logged data, where does it back up to?
 -
 
 
 14. Did you add any "extra" features, such as other data to log, the ability to edit or delete data, or changes to the styling of the app? If so, what did you add? How do these add to the experience of the app?
-
+We changed the styling of the app to make it more appealing.
