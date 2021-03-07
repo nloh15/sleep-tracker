@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content> 
-  <img src="../assets/mountains.png">
+  <div class="image-container">
+    <img src="../assets/mountains.png">
+    <div class="top-left"> {{ currentTime }} </div>
+  </div>
 
   <div class="option-section">
     <ion-row class="option-container" (click)="toSleepPage()" size="5">

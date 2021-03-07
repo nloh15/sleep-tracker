@@ -15,15 +15,14 @@ const { LocalNotifications } = Plugins;
 })
 export class HomePage {
 	allData: SleepData[];
-	mostRecentHistory: Array<String>[];
+  currentTime:string = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
 
 	constructor(public sleepService:SleepService, private route: Router) {
 	}
 
 	async ngOnInit() {
-
-		this.mostRecentHistory = this.recentHistory;
 		console.log("page init");
+    setInterval(() => { this.updateTime()}, 1000*60);
  		await LocalNotifications.requestPermission();
 
  		const notifs = await LocalNotifications.schedule({
@@ -44,10 +43,6 @@ export class HomePage {
 		});
 		console.log('scheduled notifications', notifs);
 	}
-
-	ionViewDidLoad() {
-	    this.mostRecentHistory = this.recentHistory;
-  	}
 
 	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
 	get allSleepData() {
@@ -102,4 +97,10 @@ export class HomePage {
 
   		return currentRecentHistory;
   	}
+
+    updateTime() {
+    // Get current date and format to get current time
+    var date = new Date();
+    this.currentTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
 }
