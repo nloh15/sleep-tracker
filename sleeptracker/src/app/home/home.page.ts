@@ -25,13 +25,20 @@ export class HomePage {
     setInterval(() => { this.updateTime()}, 1000*60);
  		await LocalNotifications.requestPermission();
 
+    var now  = new Date();
+    // Set notifications to 9 AM
+    now.setDate(now.getDate() + 1)
+    now.setHours(9);
+    now.setMinutes(0);
+    now.setMilliseconds(0);
+
  		const notifs = await LocalNotifications.schedule({
 		 notifications: [
 		 {
 		 title: "Sleep Tracker",
 		 body: "Don't forget to log your sleep times! ",
 		 id: 1,
-		 schedule: { at: new Date(Date.now() + 1000 * 5)
+		 schedule: { at: now
 		},
 		 sound: null,
 		 attachments: null,
