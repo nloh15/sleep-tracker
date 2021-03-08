@@ -12,11 +12,9 @@
 - 1/1 A readme which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-
-It took us around 30-35 hours spread over 1 and a half week.
+It took us around 30-35 hours to complete this assignment.
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
-
 https://www.youtube.com/watch?v=cM2SIeq7AE8 - generating new page
 https://stackoverflow.com/questions/40245847/how-to-go-to-another-page-with-a-button-click-with-ionic - navigating through pages
 https://stackoverflow.com/questions/53531819/how-to-set-background-color-ionic-4 - set bg color
@@ -29,37 +27,32 @@ https://enappd.com/blog/local-notifications-in-ionic-5-capacitor/132/ - ionic lo
 https://capacitorjs.com/docs/apis/local-notifications -local notifs
 https://developer.android.com/guide/topics/manifest/manifest-intro - making a manifest
 https://github.com/appium-boneyard/sample-code/blob/master/sample-code/apps/ToggleTest/AndroidManifest.xml
-https://stackoverflow.com/questions/35460303/how-to-convert-decimal-hour-value-to-hhmmss
+https://stackoverflow.com/questions/35460303/how-to-convert-decimal-hour-value-to-hhmmss 
 https://davidwalsh.name/javascript-clone-array - cloning arrays
-
+https://www.w3schools.com/howto/howto_css_image_text.asp - position text on image
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 None
-
 
 5. Is there anything special we need to know in order to run your code?
 None
 
 --Aim for no more than two sentences for each of the following questions.--
 
-
 6. Did you design your app with a particular type of user in mind? If so, whom?
-We designed it for the general public, hence we chose simple logging methods, easy to read history, and minimalist design.
-
+We designed it for the general public, hence we chose simple logging methods, display easy to read history, and implemented a minimalist design.
 
 7. Did you design your app specifically for iOS or Android, or both?
 It is optimized for Android, but looks decent on iOS.
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
-
 A person can log their overnight sleep by inputting their sleep and wake time (date and time). It is done that way so the user would not have to log twice (once at night and once in the morning). They would only have to do it once after they wake up. 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
-A person can log their sleepiness level by picking from a range. 
-
+A person can log their sleepiness level by picking from a range. We chose this way since it is a simple and easy way to select levels. 
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
-We created two separate pages for overnight sleep and sleepiness history. Each page containes all logged data (presented using slides), and insight based on the data logged.
+We created two separate pages for overnight sleep and sleepiness history. Each page contains a summary of all logged data (presented using slides), and insight displayed in charts and text, based on the data logged by users.
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
 We used a native device resource.
@@ -68,8 +61,7 @@ We used a native device resource.
 The feature we added is local notifications. At 9am everyday, there will be a notification sent to the user's device to as a reminder to log their sleep data. 
 
 13. If you backed up logged data, where does it back up to?
--
-
+N/A
 
 14. Did you add any "extra" features, such as other data to log, the ability to edit or delete data, or changes to the styling of the app? If so, what did you add? How do these add to the experience of the app?
-We changed the styling of the app to make it more appealing.
+We changed the styling of the app to make it more appealing, by adding icons, images and changing fonts. We also added some features for the history page for easy data visualization. For sleep history, we added the visualization of total hours per day, and for sleepiness history, we added average sleepiness levels per day.

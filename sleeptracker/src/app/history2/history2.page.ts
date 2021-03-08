@@ -160,7 +160,7 @@ export class History2Page implements OnInit {
       var currentSleepinessData = this.sleepinessArray[i];
       var level = currentSleepinessData.sleepinessLevel();
       currentSleepHistory.push(level);
-      var sleepinessDate = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric' })
+      var sleepinessDate = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'long', day: 'numeric' });
 
       if (dateToAverageSleepiness.has(sleepinessDate)){
         var averageData = dateToAverageSleepiness.get(sleepinessDate);
