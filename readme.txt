@@ -1,4 +1,8 @@
---Readme document for *author(s)*, *email(s)*, *UCI id(s)*--
+--Readme document for Nicole Loh & Cheryll Gunawan-- 
+
+Authors: Cheryll Gunawan, Nicole Loh
+Email: cagunawa@uci.edu, lohn@uci.edu
+UCI ID: 88431237, 90228913
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
@@ -27,7 +31,7 @@ https://enappd.com/blog/local-notifications-in-ionic-5-capacitor/132/ - ionic lo
 https://capacitorjs.com/docs/apis/local-notifications -local notifs
 https://developer.android.com/guide/topics/manifest/manifest-intro - making a manifest
 https://github.com/appium-boneyard/sample-code/blob/master/sample-code/apps/ToggleTest/AndroidManifest.xml
-https://stackoverflow.com/questions/35460303/how-to-convert-decimal-hour-value-to-hhmmss 
+https://stackoverflow.com/questions/35460303/how-to-convert-decimal-hour-value-to-hhmmss - formatting time
 https://davidwalsh.name/javascript-clone-array - cloning arrays
 https://www.w3schools.com/howto/howto_css_image_text.asp - position text on image
 
@@ -49,10 +53,10 @@ It is optimized for Android, but looks decent on iOS.
 A person can log their overnight sleep by inputting their sleep and wake time (date and time). It is done that way so the user would not have to log twice (once at night and once in the morning). They would only have to do it once after they wake up. 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
-A person can log their sleepiness level by picking from a range. We chose this way since it is a simple and easy way to select levels. 
+A person can log their sleepiness level by picking from a range, with the Stanford Sleepiness chart displayed above the range. We chose this way since it is a simple and easy way to select levels. 
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
-We created two separate pages for overnight sleep and sleepiness history. Each page contains a summary of all logged data (presented using slides), and insight displayed in charts and text, based on the data logged by users.
+We created two separate pages for overnight sleep and sleepiness history. Each page contains a summary of logged data (presented using slides), and insight displayed with charts and text, based on the data logged by users.
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
 We used a native device resource.
