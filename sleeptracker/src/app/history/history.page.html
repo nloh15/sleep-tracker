@@ -10,15 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <!--<ion-list-header color="light">Vertical Bar Chart</ion-list-header>
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-title>Sleep Duration</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #sleepChart></canvas>
-    </ion-card-content>
-  </ion-card>-->
+
   <h3 style="margin-left: 20px"> Recent Logs</h3>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
@@ -46,7 +38,11 @@
         <span> Total logs: {{ sleepArray.length }} </span>
         <br>
         <span> Average Time: {{ averageHours }} </span>
-
-   </div>
+  </div>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #sleepChart></canvas>
+    </ion-card-content>
+  </ion-card>
   
 </ion-content>

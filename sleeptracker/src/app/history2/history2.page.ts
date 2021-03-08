@@ -125,44 +125,18 @@ export class History2Page implements OnInit {
   
   ionViewDidEnter() {
     this.createBarChart();
-    this.createSleepChart();
   }
 
   createBarChart() {
     this.bars = new Chart(this.barChart.nativeElement, {
-      type: 'bar',
+      type: 'line',
       data: {
-        labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
+        labels: this.sleepinessLevelDate,
         datasets: [{
-          label: 'Viewers in millions',
-          data: this.formatSleepinessLevel,
-          backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-          borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-  }
-
-  createSleepChart() {
-    this.bars = new Chart(this.sleepChart.nativeElement, {
-      type: 'bar',
-      data: {
-        labels: this.formatSleepDate,
-        datasets: [{
-          label: 'Sleep Duration',
-          data: this.formatSleepLevel,
-          backgroundColor: 'rgb(255, 204, 153)', // array should have same number of elements as number of dataset
-          borderColor: 'rgb(255, 204, 153)',// array should have same number of elements as number of dataset
+          label: 'Average Sleepiness Level',
+          data: this.averageSleepinessLevelPerDay,
+          backgroundColor: 'rgb(38, 194, 129, 0)',
+          borderColor: '#6391c3',
           borderWidth: 1
         }]
       },
@@ -180,42 +154,46 @@ export class History2Page implements OnInit {
 
   get formatSleepinessLevel(){
     var currentSleepHistory = [];
+    var dateToAverageSleepiness = new Map;
 
     for (var i in this.sleepinessArray) {
       var currentSleepinessData = this.sleepinessArray[i];
       var level = currentSleepinessData.sleepinessLevel();
-
       currentSleepHistory.push(level);
-      
+      var sleepinessDate = currentSleepinessData.loggedAt.toLocaleDateString('en-US', {month: 'short', day: 'numeric' })
+
+      if (dateToAverageSleepiness.has(sleepinessDate)){
+        var averageData = dateToAverageSleepiness.get(sleepinessDate);
+        var count = averageData[0] + 1;
+        var total = averageData[1] + level;
+        dateToAverageSleepiness.set(sleepinessDate, [count, total]);
+      }
+      else {
+        dateToAverageSleepiness.set(sleepinessDate, [1, level]);
+      }
     }
-    return currentSleepHistory;
+    return dateToAverageSleepiness;
   }
 
-  get formatSleepLevel(){
-    var currentSleepHistory = [];
-
-    for (var i in this.sleepArray) {
-      var currentSleepData = this.sleepArray[i];
-      var level = currentSleepData.getHours();
-      level = level/3600000;
-
-      currentSleepHistory.push(level);
-      
-    }
-    return currentSleepHistory;
+  get sleepinessLevelDate(){
+    var sleepyMap = this.formatSleepinessLevel;
+    let keys = Array.from( sleepyMap.keys() );
+    return keys;
   }
 
-  get formatSleepDate(){
-    var currentSleepHistory = [];
+  get averageSleepinessLevelPerDay(){
 
-    for (var i in this.sleepArray) {
-      var currentSleepData = this.sleepArray[i];
-      var level = currentSleepData.dateString();
-
-      currentSleepHistory.push(level);
-      
+    var dateKeys = this.sleepinessLevelDate;
+    var dateMaps = this.formatSleepinessLevel;
+    var dateAverages = [];
+    for (var i = 0; i < dateKeys.length; i++){
+      var data = dateMaps.get(dateKeys[i]);
+      console.log(data);
+      var count = data[0];
+      var total = data[1];
+      dateAverages.push(total/count);
     }
-    return currentSleepHistory;
+    return dateAverages;
   }
 
 

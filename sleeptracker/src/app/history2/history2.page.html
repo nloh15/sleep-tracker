@@ -10,19 +10,6 @@
 </ion-header>
 
 <ion-content>
-  <!--
-  <ion-content>
-  <ion-list-header color="light">Vertical Bar Chart</ion-list-header>
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-title>Sleepiness Level</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #barChart></canvas>
-    </ion-card-content>
-  </ion-card>
-</ion-content>-->
-	
 	<h3 style="margin-left: 20px"> Recent Logs</h3>
   <div class="slides ion-margin-bottom">
     <ion-slides [options]="options">
@@ -52,4 +39,10 @@
         <span> Most Frequent Level: {{ mostFrequentLevel }} </span>
 
    </div>
+
+   <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

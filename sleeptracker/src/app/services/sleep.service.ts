@@ -14,11 +14,15 @@ export class SleepService {
 	public static AllOvernightData:OvernightSleepData[] = [];
 	public static AllSleepinessData:StanfordSleepinessData[] = [];
 
-	constructor() {
+	constructor(private AllDataFromStorage:Storage) {
+
+		//this.AllOvernightData = this.OvernightDataFromStorage;
+		//this.AllSleepinessData = this.SleepinessDataFromStorage;
 		if(SleepService.LoadDefaultData) {
 			this.addDefaultData();
 		SleepService.LoadDefaultData = false;
-	}
+		}
+
 	}
 
 	private addDefaultData() {
@@ -35,5 +39,6 @@ export class SleepService {
 	public logSleepinessData(sleepData:StanfordSleepinessData) {
 		SleepService.AllSleepData.push(sleepData);
 		SleepService.AllSleepinessData.push(sleepData);
+		console.log("adding to local storage");
 	}
 }
